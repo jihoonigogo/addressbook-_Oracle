@@ -10,14 +10,16 @@ public class Controller {
 		PBApp app = new PBApp();
 		BookView view = new BookView();
 		
+		
 	 view.openingView();
 		
-		Scanner sc = new Scanner(System.in);
+		
 		
 		while(true) {
+			Scanner sc = new Scanner(System.in);
 			view.menuView();
-			
-			switch(sc.nextInt()) {
+			int v = sc.nextInt();
+			switch(v) {
 			
 			case 1 : view.listView();	
 			app.listPhoneBook();

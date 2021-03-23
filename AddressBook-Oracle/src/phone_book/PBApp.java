@@ -13,15 +13,16 @@ public class PBApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		listPhoneBook();
 		
-		addphoneBook();
+	addphoneBook();
 		//deletePhoneBook();
 		//listPhoneBook();
 		//searchPhoneBook();
 	}
 
 	public static void listPhoneBook() {
-		phoneBookDao dao = new pbDaoOracle();
+		pbDaoOracle dao = new pbDaoOracle();
 		List<phoneBookVo> list = dao.getList();
 		Iterator<phoneBookVo> it = list.iterator()	; // 반복을 통해서 출력
 		
@@ -43,10 +44,10 @@ public class PBApp {
 		String tel = sc.next();
 		
 		phoneBookVo vo = new phoneBookVo (name,hp,tel); // 숫자는 pk로 받음
-		phoneBookDao dao = new pbDaoOracle();
+		pbDaoOracle dao = new pbDaoOracle();
 		boolean success = dao.insert(vo); // 위 생성자 형태로 dao에 넣어줌?
 		System.out.println("phoneBook INSERT : "+ (success ? "성공":"실패"));
-		sc.close();
+		//sc.close();
 	}
 	
 	public static void deletePhoneBook() {
@@ -56,7 +57,7 @@ public class PBApp {
 		phoneBookDao dao = new pbDaoOracle();
 		boolean success = dao.delete(Id);
 		System.out.println("phonebook DELETE : " + (success ? "성공": "실패"));
-		scanner.close();
+		//scanner.close();
 	}
 	
 	public static void searchPhoneBook() {
@@ -72,7 +73,7 @@ public class PBApp {
 			phoneBookVo vo = it.next();
 			System.out.println(vo);
 		}
-		scanner.close();
+		//scanner.close();
 	}
 	}
 
